@@ -1,7 +1,4 @@
-import ReactDOM from "react-dom";
-import App from "./App";
-import axios from "axios";
+import ReactDOM from 'react-dom'
+import App from './App'
 
-axios.get("http://localhost:3001/persons").then((response) => {
-  ReactDOM.render(<App />, document.getElementById("root"));
-});
+ReactDOM.render(<App />, document.getElementById('root'))
