@@ -27,7 +27,7 @@ const App = () => {
     event.preventDefault()
 
     if (persons.map((person) => person.name).includes(newName)) {
-      //alert(`${newName} is already in phonebook`);
+      //alert(`${newName} is already in phonebook`)
       if (
         window.confirm(
           `${newName} is already in phonebook. Do you want to replace the number?`
@@ -49,10 +49,7 @@ const App = () => {
           })
           .catch((error) => {
             console.log('fail')
-            showMessage(
-              `Information of ${newName} has already been deleted`,
-              false
-            )
+            showMessage(`Information of ${newName} is already there`, false)
             setNewName('')
             setNewNumber('')
           })
@@ -71,7 +68,10 @@ const App = () => {
           setNewName('')
           setNewNumber('')
         })
-        .catch((error) => console.log('fail'))
+        .catch((error) => {
+          showMessage(JSON.stringify(error.response.data.error), false)
+          console.log(error.response.data)
+        })
     }
   }
 
